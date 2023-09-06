@@ -21,7 +21,12 @@ public class AreaController {
     @GetMapping(value = "/areas",produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<Area>> getAllAreas(){
         List<Area> areas = areaService.getAllAreas();
-
         return new ResponseEntity <>(areas, HttpStatus.OK);
+    }
+
+    @GetMapping(value = "/area/{id}",produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Area> getAreaById(@RequestParam Integer id){
+        Area area = areaService.getAreaById(id);
+        return new ResponseEntity <>(area, HttpStatus.OK);
     }
 }

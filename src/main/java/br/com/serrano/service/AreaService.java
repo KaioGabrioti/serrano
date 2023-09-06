@@ -17,4 +17,8 @@ public class AreaService {
         return areaRepository.getAllAreas();
     }
 
+    public Area getAreaById(Integer id){
+        return areaRepository.getAreaById(id);
+    }
+
 }
