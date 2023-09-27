@@ -8,12 +8,16 @@ import java.io.Serializable;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "tb_areas")
+@Table(name = "tb_requisito")
 @Entity
-public class Area implements Serializable {
+public class Requisito implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @Column(name = "nome")
-    private String nome;
+    @Column(name = "descricao")
+    private String descricao;
+    @Column(name = "numero")
+    private String numero;
+    @Column(name = "pratico")
+    private boolean pratico;
 }

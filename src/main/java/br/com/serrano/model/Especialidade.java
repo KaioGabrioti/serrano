@@ -8,20 +8,20 @@ import java.io.Serializable;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "tb_unidades")
+@Table(name = "tb_especialidades")
 @Entity
-public class Unidade implements Serializable {
+public class Especialidade implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @Column(name = "nome")
     private String nome;
-    @Column(name = "criado_em")
+    @Column(name = "dt_criado_em")
     private String criadoEm;
-    @Column(name = "qt_membros")
-    private String quantidadeMembros;
-    @Column(name = "genero")
-    private String genero;
+    @Column(name = "nivel")
+    private String nivel;
+    @Column(name = "instituicao_origem")
+    private String instituicaoOrigem;
     @Column(name = "image")
     private String image;
 }

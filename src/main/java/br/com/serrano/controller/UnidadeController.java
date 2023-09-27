@@ -25,8 +25,7 @@ public class UnidadeController {
         return new ResponseEntity <>(unidade, HttpStatus.OK);
     }
     @PostMapping(value = "/unidade",produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Unidade> createUnidade(@RequestBody Unidade unidade){
-        System.out.print(unidade);
+    public ResponseEntity<Unidade> createOrUpdateUnidade(@RequestBody Unidade unidade){
         return new ResponseEntity <>(unidadeService.createOrUpdateUnidade(unidade), HttpStatus.OK);
     }
     @PutMapping(value = "/unidade/{id}",produces = MediaType.APPLICATION_JSON_VALUE)
@@ -34,7 +33,7 @@ public class UnidadeController {
         return new ResponseEntity <>(unidadeService.createOrUpdateUnidade(unidade), HttpStatus.OK);
     }
     @DeleteMapping(value = "/unidade/{id}",produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<String> updateUnidade(@PathVariable Integer id){
+    public ResponseEntity<String> deleteUnidade(@PathVariable Integer id){
         return new ResponseEntity <>(unidadeService.deleteUnidade(id), HttpStatus.OK);
     }
 }

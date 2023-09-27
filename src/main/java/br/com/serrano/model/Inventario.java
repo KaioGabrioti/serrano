@@ -4,24 +4,26 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
 import java.io.Serializable;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "tb_unidades")
+@Table(name = "tb_inventario")
 @Entity
-public class Unidade implements Serializable {
+public class Inventario implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @Column(name = "nome")
     private String nome;
-    @Column(name = "criado_em")
+    @Column(name = "dt_criado_em")
     private String criadoEm;
-    @Column(name = "qt_membros")
-    private String quantidadeMembros;
-    @Column(name = "genero")
-    private String genero;
+    @Column(name = "dt_atualizado_em")
+    private String atualizadoEm;
     @Column(name = "image")
     private String image;
+    @Column(name = "qt_items")
+    private String quantidadeItems;
 }
