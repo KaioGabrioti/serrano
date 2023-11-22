@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 @RestController
 @CrossOrigin(origins = "http://127.0.0.1:5500")
@@ -31,7 +32,7 @@ public class EventoController {
     public ResponseEntity<Evento> updateUnidade(@RequestBody Evento evento){
         return new ResponseEntity <>(eventoService.createOrUpdateEvento(evento), HttpStatus.OK);
     }
-    @DeleteMapping(value = "/evento/{id}",produces = MediaType.APPLICATION_JSON_VALUE)
+    @DeleteMapping(value = "/evento/{id}")
     public ResponseEntity<String> deleteEvento(@PathVariable Integer id) {
         return new ResponseEntity<>(eventoService.deleteEvento(id), HttpStatus.OK);
     }

@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Date;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -20,13 +22,8 @@ public class Usuario {
     private String login;
     @Column(name = "password")
     private String password;
-    @Column(name = "active")
+    @Column(name = "ativo")
     private boolean ativo;
-    @Column(name = "dt_last_access")
-    private String ultimoAcessoEm;
-    @Column(name = "is_diretoria")
-    private boolean isDiretoria;
-    @Column(name = "is_desbravador")
-    private boolean isDesbravador;
-
+    @Column(name = "ultimo_acesso")
+    private Date ultimoAcessoEm;
 }

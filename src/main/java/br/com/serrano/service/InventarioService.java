@@ -4,6 +4,7 @@ import br.com.serrano.model.Inventario;
 import br.com.serrano.repository.InventarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import java.util.List;
 @Service
 public class InventarioService {
@@ -15,9 +16,14 @@ public class InventarioService {
     public Inventario getInventarioById(Integer id){ return inventarioRepository.getInventarioById(id);}
     public Inventario createOrUpdateInventario(Inventario inventario){return inventarioRepository.save(inventario);}
     public String deleteInventario(Integer id){
+        Inventario inventario = inventarioRepository.getInventarioById(id);
         try {
-            inventarioRepository.deleteById(id);
-            return "Inventario deletado com sucesso";
+            if(inventario != null){
+                inventarioRepository.deleteById(id);
+                return "Inventario deletado com sucesso";
+            } else {
+                return "Inventario nao encontrado na base de dados";
+            }
         }catch(Exception e) {
             return "Erro ao deletar o inventario";
         }

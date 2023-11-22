@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 @RestController
 @CrossOrigin(origins = "http://127.0.0.1:5500")
@@ -31,7 +32,7 @@ public class ClasseController {
     public ResponseEntity<Classe> updateClasse(@RequestBody Classe classe){
         return new ResponseEntity <>(classeService.createOrUpdateClasse(classe), HttpStatus.OK);
     }
-    @DeleteMapping(value = "/classe/{id}",produces = MediaType.APPLICATION_JSON_VALUE)
+    @DeleteMapping(value = "/classe/{id}")
     public ResponseEntity<String> deleteClasse(@PathVariable Integer id){
         return new ResponseEntity <>(classeService.deleteClasse(id), HttpStatus.OK);
     }

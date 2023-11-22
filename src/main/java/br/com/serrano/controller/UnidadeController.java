@@ -16,8 +16,8 @@ public class UnidadeController {
     UnidadeService unidadeService;
     @GetMapping(value = "/unidades",produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<Unidade>> getAllUnidades(){
-        List<Unidade> areas = unidadeService.getAllUnidades();
-        return new ResponseEntity <>(areas, HttpStatus.OK);
+        List<Unidade> unidades = unidadeService.getAllUnidades();
+        return new ResponseEntity <>(unidades, HttpStatus.OK);
     }
     @GetMapping(value = "/unidade/{id}",produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Unidade> getUnidadeById(@PathVariable Integer id){
@@ -32,7 +32,7 @@ public class UnidadeController {
     public ResponseEntity<Unidade> updateUnidade(@RequestBody Unidade unidade){
         return new ResponseEntity <>(unidadeService.createOrUpdateUnidade(unidade), HttpStatus.OK);
     }
-    @DeleteMapping(value = "/unidade/{id}",produces = MediaType.APPLICATION_JSON_VALUE)
+    @DeleteMapping(value = "/unidade/{id}")
     public ResponseEntity<String> deleteUnidade(@PathVariable Integer id){
         return new ResponseEntity <>(unidadeService.deleteUnidade(id), HttpStatus.OK);
     }

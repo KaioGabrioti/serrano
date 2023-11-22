@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 @RestController
 @CrossOrigin(origins = "http://127.0.0.1:5500")
@@ -31,7 +32,7 @@ public class RequisitoController {
     public ResponseEntity<Requisito> updateRequisito(@RequestBody Requisito requisito){
         return new ResponseEntity <>(requisitoService.createOrUpdateRequisito(requisito), HttpStatus.OK);
     }
-    @DeleteMapping(value = "/requisito/{id}",produces = MediaType.APPLICATION_JSON_VALUE)
+    @DeleteMapping(value = "/requisito/{id}")
     public ResponseEntity<String> deleteRequisito(@PathVariable Integer id){
         return new ResponseEntity <>(requisitoService.deleteRequisito(id), HttpStatus.OK);
     }

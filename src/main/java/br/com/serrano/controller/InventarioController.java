@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 @RestController
 @CrossOrigin(origins = "http://127.0.0.1:5500")
@@ -31,7 +32,7 @@ public class InventarioController {
     public ResponseEntity<Inventario> updateinventarioService(@RequestBody Inventario inventario){
         return new ResponseEntity <>(inventarioService.createOrUpdateInventario(inventario), HttpStatus.OK);
     }
-    @DeleteMapping(value = "/inventario/{id}",produces = MediaType.APPLICATION_JSON_VALUE)
+    @DeleteMapping(value = "/inventario/{id}")
     public ResponseEntity<String> deleteInventario(@PathVariable Integer id){
         return new ResponseEntity <>(inventarioService.deleteInventario(id), HttpStatus.OK);
     }
